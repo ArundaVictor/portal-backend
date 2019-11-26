@@ -1,4 +1,4 @@
-package com.gymapp.service.portal;
+package com.gymapp.service.portal.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -13,7 +13,7 @@ import java.util.List;
 @SpringBootApplication
 @RestController
 @CrossOrigin(origins = "*")
-public class RegistrationServiceApplication {
+public class UserController {
 
     @Autowired
     private UserRepository repository;
@@ -40,9 +40,6 @@ public class RegistrationServiceApplication {
         return repository.findAll();
     }
 
-    public static void main(String[] args) {
-        SpringApplication.run(RegistrationServiceApplication.class, args);
-    }
 
 }
 
