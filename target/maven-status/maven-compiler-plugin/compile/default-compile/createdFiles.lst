@@ -1,3 +1,6 @@
-com/javatechie/reg/service/api/dao/UserRepository.class
-com/javatechie/reg/service/api/RegistrationServiceApplication.class
-com/javatechie/reg/service/api/model/User.class
+com/gymapp/service/portal/model/AbstractEntity.class
+com/gymapp/service/portal/controller/UserController.class
+com/gymapp/service/portal/service/UserService.class
+com/gymapp/service/portal/repository/UserRepository.class
+com/gymapp/service/portal/GymAppPortalServiceApplication.class
+com/gymapp/service/portal/model/User.class

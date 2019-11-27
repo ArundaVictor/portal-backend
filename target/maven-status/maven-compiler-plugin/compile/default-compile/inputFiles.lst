@@ -1,3 +1,6 @@
-/home/victor/Documents/Projects/GymApp/registration-service/src/main/java/com/javatechie/reg/service/api/model/User.java
-/home/victor/Documents/Projects/GymApp/registration-service/src/main/java/com/javatechie/reg/service/api/RegistrationServiceApplication.java
-/home/victor/Documents/Projects/GymApp/registration-service/src/main/java/com/javatechie/reg/service/api/dao/UserRepository.java
+/home/victor/Documents/Projects/GymApp/back-end/src/main/java/com/gymapp/service/portal/controller/UserController.java
+/home/victor/Documents/Projects/GymApp/back-end/src/main/java/com/gymapp/service/portal/repository/UserRepository.java
+/home/victor/Documents/Projects/GymApp/back-end/src/main/java/com/gymapp/service/portal/service/UserService.java
+/home/victor/Documents/Projects/GymApp/back-end/src/main/java/com/gymapp/service/portal/GymAppPortalServiceApplication.java
+/home/victor/Documents/Projects/GymApp/back-end/src/main/java/com/gymapp/service/portal/model/User.java
+/home/victor/Documents/Projects/GymApp/back-end/src/main/java/com/gymapp/service/portal/model/AbstractEntity.java

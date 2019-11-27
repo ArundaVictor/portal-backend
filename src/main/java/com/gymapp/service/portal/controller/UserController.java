@@ -1,43 +1,68 @@
 package com.gymapp.service.portal.controller;
 
+import com.gymapp.service.portal.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.gymapp.service.portal.repository.UserRepository;
 import com.gymapp.service.portal.model.User;
 
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.List;
 
-@SpringBootApplication
 @RestController
-@CrossOrigin(origins = "*")
+@RequestMapping("user-controller")
 public class UserController {
 
     @Autowired
-    private UserRepository repository;
+    private UserService userService;
 
-    @PostMapping("/register")
-    public String register(@RequestBody User user) {
-        repository.save(user);
-        return "Hi " + user.getName() + " your Registration process successfully completed";
-    }
-    
-    @GetMapping("/getAllUsers")
-    public List<User> findAllUsers() {
-        return repository.findAll();
+    private Logger logger = LoggerFactory.getLogger(getClass());
+
+    @GetMapping(value = "/users", produces = { "application/json" })
+    public ResponseEntity<List<User>> getAll() {
+        return ResponseEntity.ok(userService.getAll());
     }
 
-    @GetMapping("/findUser/{email}")
-    public List<User> findUser(@PathVariable String email) {
-        return repository.findByEmail(email);
+    @GetMapping(value = "/users/count", produces = { "application/json" })
+    public ResponseEntity<Long> countUsers() {
+        return ResponseEntity.ok(userService.count());
     }
 
-    @DeleteMapping("/cancel/{id}")
-    public List<User> cancelRegistration(@PathVariable int id) {
-        repository.deleteById(id);
-        return repository.findAll();
+    @GetMapping(value = "/users/{id}", produces = { "application/json" })
+    public ResponseEntity<User> getById(@PathVariable("id") Long id) {
+        return ResponseEntity.ok(userService.findById(id));
+    }
+
+    @PostMapping(value = "/users", produces = { "application/json" })
+    public ResponseEntity<User> createUser( @RequestBody User user)
+            throws URISyntaxException {
+        user = userService.save(user);
+        String uri = "/user-controller/users/".concat(String.valueOf(user.getId()));
+        return ResponseEntity.created(new URI(uri)).body(user);
+    }
+
+    @GetMapping(value = "/users/get/{userUuid}")
+    public ResponseEntity<User> findByUuid(@PathVariable("userUuid") String userUuid) {
+        return ResponseEntity.ok(userService.findByUuid(userUuid));
+    }
+
+    @PutMapping(value = "/users/{id}", produces = { "application/json" })
+    public ResponseEntity<User> update(@PathVariable("id") Long id, @RequestBody User user) {
+        user.setId(id);
+        return ResponseEntity.ok(userService.save(user));
+    }
+
+    @DeleteMapping(value = "/users/{id}")
+    public ResponseEntity<String> delete(@PathVariable("id") Long id) {
+        userService.deleteById(id);
+        return ResponseEntity.ok().build();
     }
 
 
