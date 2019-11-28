@@ -30,6 +30,11 @@ public class UserController {
         return ResponseEntity.ok(userService.getAll());
     }
 
+    @GetMapping(value = "/programs/list", produces = { "application/json" })
+    public ResponseEntity<List<User>> getAllUsers() {
+        return ResponseEntity.ok(userService.getAll());
+    }
+
     @GetMapping(value = "/users/count", produces = { "application/json" })
     public ResponseEntity<Long> countUsers() {
         return ResponseEntity.ok(userService.count());
