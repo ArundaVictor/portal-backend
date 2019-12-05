@@ -24,9 +24,13 @@ public class UserService {
         return userRepository.save(card);
     }
 
-    public void deleteById(Integer id) {
+    public void deleteById(Long id) {
 
         userRepository.deleteById(id);
+    }
+
+    public User findById(Long id) {
+        return userRepository.findById(id).get();
     }
 
     public Long count() {

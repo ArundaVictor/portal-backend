@@ -37,11 +37,6 @@ public class UserController {
         return userService.getAllUsers(pageable);
     }
 
-    @GetMapping(value = "/programs/list", produces = { "application/json" })
-    public ResponseEntity<List<User>> getAllUsers() {
-        return ResponseEntity.ok(userService.getAll());
-    }
-
     @GetMapping(value = "/users/count", produces = { "application/json" })
     public ResponseEntity<Long> countUsers() {
         return ResponseEntity.ok(userService.count());
@@ -68,7 +63,7 @@ public class UserController {
     }
 
     @DeleteMapping(value = "/users/{id}")
-    public ResponseEntity<String> delete(@PathVariable("id") Integer id) {
+    public ResponseEntity<String> delete(@PathVariable("id") Long id) {
         userService.deleteById(id);
         return ResponseEntity.ok().build();
     }
