@@ -6,6 +6,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,9 +27,14 @@ public class UserController {
 
     private Logger logger = LoggerFactory.getLogger(getClass());
 
-    @GetMapping(value = "/users", produces = { "application/json" })
+    @GetMapping(value = "/list", produces = { "application/json" })
     public ResponseEntity<List<User>> getAll() {
         return ResponseEntity.ok(userService.getAll());
+    }
+
+    @RequestMapping(method=RequestMethod.GET)
+    public Page<User> getAllUsers(Pageable pageable) {
+        return userService.getAllUsers(pageable);
     }
 
     @GetMapping(value = "/programs/list", produces = { "application/json" })
@@ -40,10 +47,6 @@ public class UserController {
         return ResponseEntity.ok(userService.count());
     }
 
-    @GetMapping(value = "/users/{id}", produces = { "application/json" })
-    public ResponseEntity<User> getById(@PathVariable("id") Long id) {
-        return ResponseEntity.ok(userService.findById(id));
-    }
 
     @PostMapping(value = "/users", produces = { "application/json" })
     public ResponseEntity<User> createUser( @RequestBody User user)
@@ -65,7 +68,7 @@ public class UserController {
     }
 
     @DeleteMapping(value = "/users/{id}")
-    public ResponseEntity<String> delete(@PathVariable("id") Long id) {
+    public ResponseEntity<String> delete(@PathVariable("id") Integer id) {
         userService.deleteById(id);
         return ResponseEntity.ok().build();
     }
