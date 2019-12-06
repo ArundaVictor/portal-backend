@@ -38,6 +38,11 @@ public class UserController {
         return userService.getAllUsers(pageable);
     }
 
+    @GetMapping(value = "/users/{id}")
+    public ResponseEntity<User> findById(@PathVariable("id") Long id) {
+        return ResponseEntity.ok(userService.findById(id));
+    }
+
     @GetMapping(value = "/users/count", produces = { "application/json" })
     public ResponseEntity<Long> countUsers() {
         return ResponseEntity.ok(userService.count());
