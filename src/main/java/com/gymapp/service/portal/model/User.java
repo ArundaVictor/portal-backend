@@ -29,6 +29,7 @@ public class User extends AbstractEntity {
     @JsonProperty("telephoneNumbers")
     @Column(name = "telephoneNumbers", nullable = true, length = 150)
     private String telephoneNumbers;
+    
 
     @JsonProperty("emailAddresses")
     @Column(name = "emailAddresses", nullable = true, length = 150)
