@@ -18,9 +18,9 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
 
+@CrossOrigin(origins = { "http://localhost:4200" }, maxAge = 3600)
 @RestController
 @RequestMapping("user-controller")
-@CrossOrigin(origins = { "http://localhost:4200" }, maxAge = 3600)
 public class UserController {
 
     @Autowired
