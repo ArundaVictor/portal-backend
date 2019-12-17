@@ -1,6 +1,7 @@
 /home/victor/Documents/Projects/GymApp/back-end/src/main/java/com/gymapp/service/portal/controller/UserController.java
 /home/victor/Documents/Projects/GymApp/back-end/src/main/java/com/gymapp/service/portal/repository/UserRepository.java
 /home/victor/Documents/Projects/GymApp/back-end/src/main/java/com/gymapp/service/portal/service/UserService.java
+/home/victor/Documents/Projects/GymApp/back-end/src/main/java/com/gymapp/service/portal/SecurityConfig.java
 /home/victor/Documents/Projects/GymApp/back-end/src/main/java/com/gymapp/service/portal/GymAppPortalServiceApplication.java
 /home/victor/Documents/Projects/GymApp/back-end/src/main/java/com/gymapp/service/portal/model/User.java
 /home/victor/Documents/Projects/GymApp/back-end/src/main/java/com/gymapp/service/portal/model/AbstractEntity.java

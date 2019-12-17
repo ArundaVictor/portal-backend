@@ -1,5 +1,6 @@
 com/gymapp/service/portal/model/AbstractEntity.class
 com/gymapp/service/portal/controller/UserController.class
+com/gymapp/service/portal/SecurityConfig.class
 com/gymapp/service/portal/service/UserService.class
 com/gymapp/service/portal/repository/UserRepository.class
 com/gymapp/service/portal/GymAppPortalServiceApplication.class
